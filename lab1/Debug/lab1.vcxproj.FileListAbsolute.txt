@@ -1,0 +1,2 @@
+D:\OP-20-21\OP-20-21-sem2\lab1\Debug\lab1.exe
+D:\OP-20-21\OP-20-21-sem2\lab1\Debug\lab1.pdb
