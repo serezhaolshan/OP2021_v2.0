@@ -14,8 +14,6 @@
 #define N 30
 #define str_sz 15
 
-
-
 using namespace std;
 int k = 0, mn = 0, j = 0, sz = 0;
 
@@ -33,8 +31,32 @@ struct Space ms[N], x;
 
 void random_filling(Space);
 void keyboard_filling(Space);
-void outputting(Space, int sz);
-void sorting(Space, int sz);
+void outputting(Space, int);
+void sorting(Space, int);
+
+void sorting(Space* ms, int size) {
+	for (int i = 0; i < size; ++i) {
+		mn = i;
+		for (j = i + 1; j < size; ++j)
+			if (ms[mn].sc[0] > ms[j].sc[0])mn = j;
+		if (mn > i) {
+			strcpy(x.sc, ms[i].sc);
+			x.percent = ms[i].percent;
+			x.apprWeight = ms[i].apprWeight;
+			x.numberOfStars = ms[i].numberOfStars;
+			strcpy(ms[i].sc, ms[mn].sc);
+			ms[i].percent = ms[mn].percent;
+			ms[i].apprWeight = ms[mn].apprWeight;
+			ms[i].numberOfStars = ms[mn].numberOfStars;
+			strcpy(ms[mn].sc, x.sc);
+			ms[mn].percent = x.percent;
+			ms[mn].apprWeight = x.apprWeight;
+			ms[mn].numberOfStars = x.numberOfStars;
+		}
+	}
+	cout << endl << "Структура отсортирована " << size << endl << endl;
+}
+
 
 void random_filling(Space* ms) {
 	srand(time(0));
@@ -63,7 +85,7 @@ void random_filling(Space* ms) {
 			temp[i] = ss[i];
 		ss.clear();
 		strcpy(ms[h].sc, temp);
-		ms[h].sc[h] = scс[r];
+		ms[h].sc[0] = scс[r];
 		ms[h].percent = percent[r];
 		ms[h].apprWeight = apprWeight[r];
 		ms[h].numberOfStars = numberOfStars[r];
@@ -91,66 +113,18 @@ void outputting(Space* ms, int size) {
 
 	for (int i = 0; i < size; ++i) {
 		printf("|--------------------|-----------------------|--------|------------------|\n");
-		printf("| %18c | %21f | %6.5Lf| %16lli |\n", ms[i].sc[i], ms[i].apprWeight, ms[i].percent, ms[i].numberOfStars);
+		printf("| %18c | %21f | %6.5Lf| %16lli |\n", ms[i].sc[0], ms[i].apprWeight, ms[i].percent, ms[i].numberOfStars);
 	}
 	printf("|------------------------------------------------------------------------|\n");
 	printf("|        Примечание: не показаны данные для классов: B, A, G, K          |\n");
 	printf("--------------------------------------------------------------------------\n\n\n\n");
-}
-/*void sorting(Space* ms, int size) {
-	char slu[str_sz];
-	for (int i = 0; i < size - 1; i++)
-		for (j = i + 1; j < size; j++)
-			if (strcmp(ms[i].sc, ms[j].sc) > 0)
-			{
-				strcpy(slu, ms[i].sc);
-				strcpy(ms[i].sc, ms[j].sc);
-				strcpy(ms[j].sc, slu);
-			}
-	for (int i = 0; i < size-1; ++i) {
-		mn = i;
-		for (j = i + 1; j < size; ++j)
-			if (strcmp(ms[mn].sc, ms[j].sc) > 0)mn = j;
-		if (mn > i) {
-			strcpy(x.sc, ms[i].sc);
-			x.percent = ms[i].percent;
-			x.apprWeight = ms[i].apprWeight;
-			x.numberOfStars = ms[i].numberOfStars;
-			strcpy(ms[i].sc, ms[mn].sc);
-			ms[i].percent = ms[mn].percent;
-			ms[i].apprWeight = ms[mn].apprWeight;
-			ms[i].numberOfStars = ms[mn].numberOfStars;
-			strcpy(ms[mn].sc, x.sc);
-			ms[mn].percent = x.percent;
-			ms[mn].apprWeight = x.apprWeight;
-			ms[mn].numberOfStars = x.numberOfStars;
-
-		}
-
-		strcpy(x.name, mm[i].name); x.sc = mm[i].sc;
-		x.cnt = mm[i].cnt; x.sq = mm[i].sq;
-		strcpy(mm[i].name, mm[m].name); mm[i].sc = mm[m].sc;
-		mm[i].cnt = mm[m].cnt; mm[i].sq = mm[m].sq;
-		strcpy(mm[m].name, x.name); mm[m].sc = x.sc;
-		mm[m].cnt = x.cnt; mm[m].sq = x.sq;
-	}*/
-//int comp1(const void* a, const void* b)
-//{
-//	cout << endl << "Структура отсортирована" << endl << endl;
-//	return strcmp(*(char**)a, *(char**)b);
-//	
-//}
-int compare_prices(const void* sc1, const void* sc2) {
-	const char* name1 = ((const Space*)sc1)->sc;
-	const char* name2 = ((const Space*)sc1)->sc;
-	return strcmp(name1, name2);
 }
 
 int main() {
 
 	system("chcp 1251");
 	system("cls");
-	
+
 	int checker;
 
 	while (true) {
@@ -163,52 +137,31 @@ int main() {
 		cout << "Для выхода из программы введите 0" << endl << "> ";
 
 		cin >> checker;
-
-		//if (checker < 0 || checker>5) {
-		//	cout << "Введено неверное значение. Попробуйте ещё раз: ";
-		//	continue;
-		//}
 		switch (checker) {
-			case(0): {
-				return 0;
-			}
-			case(1): {
-				random_filling(ms);
-				break;
-			}
-			case(2): {
-				keyboard_filling(ms);
-				break;
-			}
-			case(3): {
-				outputting(ms, sz);
-				break;
-			}
-			case(4): {
-				//sorting(ms, sz);
-				qsort(ms, sz, sizeof(char**), &compare_prices);
-				break;
-			}
-			case(5): {
-				system("cls");
-				break;
-			}
-			default: {
-				cout << "Введено неверное значение. Попробуйте ещё раз: ";
-				continue;
-			}
+		case(0):
+			return 0;
+		case(1):
+			random_filling(ms);
+			break;
+		case(2):
+			keyboard_filling(ms);
+			break;
+		case(3):
+			outputting(ms, sz);
+			break;
+		case(4):
+			sorting(ms, sz);
+			break;
+		case(5):
+			system("cls");
+			break;
+		default:
+			cout << "Введено неверное значение. Попробуйте ещё раз: ";
+			break;
 		}
-		//if (checker == 0)
-		//	return 0;
-		//if (checker == 1)
-		//	random_filling(ms);
-		//else if (checker == 2)
-		//	keyboard_filling(ms);
-		//else if (checker == 3)
-		//	outputting(ms, sz);
-		//else if (checker == 4)
-		//	sorting(ms, sz);
-		//else if (checker == 5)
-		//	system("cls");
 	}
+	
+	delete[] ms;
+
+
 }
