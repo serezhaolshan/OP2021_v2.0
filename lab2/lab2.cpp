@@ -2,13 +2,13 @@
 #include<windows.h>
 #include "struct_file.h"
 
-#define N 30
 #define str_sz 15
 
 using namespace std;
 
 
-struct Space* ms[N], x;
+struct Space ms[N], x;
+
 int sz = 0;
 
 int main() {
@@ -31,13 +31,13 @@ int main() {
 		case(0):
 			return 0;
 		case(1):
-			struct_filling(*ms);
+			struct_filling(ms);
 			break;
 		case(2):
-			outputting(*ms, sz);
+			outputting(ms, sz);
 			break;
 		case(3):
-			sorting(*ms, sz);
+			sorting(ms, sz);
 			break;
 		case(4):
 			system("cls");

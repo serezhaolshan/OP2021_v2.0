@@ -1,0 +1,2 @@
+D:\OP-20-21\OP2021_v2.0\lab2\x64\Debug\lab2.exe
+D:\OP-20-21\OP2021_v2.0\lab2\x64\Debug\lab2.pdb

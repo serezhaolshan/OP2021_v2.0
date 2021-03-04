@@ -16,6 +16,13 @@ PRINT_TYPE == 2 --> random filling
 #define N 30
 #define str_sz 15
 
+//struct Space {
+//	char sc[15];
+//	float percent, apprWeight;
+//	unsigned long long numberOfStars;
+//};
+//struct Space* ms[N], x;
+
 using namespace std;
 
 extern int sz;

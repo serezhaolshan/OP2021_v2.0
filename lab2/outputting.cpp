@@ -18,9 +18,9 @@ void outputting(Space* ms, int size) {
 	system_clock::time_point today = system_clock::now();
 	time_t tt;
 	tt = system_clock::to_time_t(today);
-	if (!activated) {
-		cout << "Today is: " << ctime(tt) << __FUNCTION__ << endl;
-		activated = true;
+	if (!active) {
+		cout << "Today is: " << ctime(&tt) << __FUNCTION__ << endl;
+		active = true;
 	}
 #endif
 
@@ -39,7 +39,7 @@ void outputting(Space* ms, int size) {
 
 	#ifdef DEBUG
 
-		if (activated) 
+		if (active) 
 			cout << "DEBUG is defined" << endl << endl;
 	
 	#endif
