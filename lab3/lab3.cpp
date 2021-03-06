@@ -71,5 +71,11 @@ int main()
 	cout << " Массив положительных числел:" << endl;
 	for (int i = 0; i < n; i++)
 		cout << *(posArr + i) << " ";
+
+	delete[] posArr;
+	delete[] arr;
+
+	return 0;
+
 }
 
