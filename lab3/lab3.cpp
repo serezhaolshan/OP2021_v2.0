@@ -37,6 +37,7 @@ int main()
 
 	int arr[sz], n;
 
+
 	cout << "Введите размер массива(1-100) > ";
 	cin >> n;
 	while (n < 1 || n>99) {
