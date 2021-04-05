@@ -1,17 +1,6 @@
-﻿#include<iostream>
-#include<Windows.h>
-#include<ctime>
-#include<utility>
-#include<iomanip>
-//#include "lab4head.h"
+﻿#include "lab4head.h"
  
-using namespace std;
-#define sz 100
-
 int posArr[sz];
-
-int func(int* array, int size);
-
 
 int main()
 {
@@ -57,9 +46,6 @@ int main()
 	cout << " Массив положительных числел:" << endl;
 	for (int i = 0; i < n; i++)
 		cout << *(posArr + i) << " ";
-
-	delete[] posArr;
-	delete[] arr;
 
 	return 0;
 

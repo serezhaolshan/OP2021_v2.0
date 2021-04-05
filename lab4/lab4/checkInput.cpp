@@ -1,8 +1,3 @@
-#include<iostream>
-#include<Windows.h>
-#include<ctime>
-#include<utility>
-#include<iomanip>
 #include "lab4head.h"	
 
 using namespace std;

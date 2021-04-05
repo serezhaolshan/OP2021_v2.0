@@ -38,24 +38,24 @@ int main() {
     cout << "Введите первую строку: ";
     for (i = 0; i < m; i++)
     {
-        cin >> str1[i];
+        cin >> *(str1-i);
     }
     cout << "Введите вторую строку: ";
     for (j = 0; j < n; j++)
     {
-        cin >> str2[j];
+        cin >> *(str2-j);
     }
     cout << "Первая строка: ";
     for (i = 0; i < m; i++)
     {
-        cout << str1[i];
+        cout << *(str1-i);
     }
     cout << endl;
 
     cout << "Вторая строка: ";
     for (j = 0; j < n; j++)
     {
-        cout << str2[j];
+        cout << *(str2-j);
     }
     cout << endl;
     cout << "Символ: " << endl;

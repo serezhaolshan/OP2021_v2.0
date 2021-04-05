@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{60440123-33bf-4924-8751-3a25e0a4fb4a}</ProjectGuid>
-    <RootNamespace>lab4</RootNamespace>
+    <ProjectGuid>{527f9a99-23ad-4221-903e-8388c5bcba50}</ProjectGuid>
+    <RootNamespace>lab7</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,11 +139,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="checkInput.cpp" />
-    <ClCompile Include="lab4.cpp" />
+    <ClCompile Include="keyboard_filling.cpp" />
+    <ClCompile Include="lab7.cpp" />
+    <ClCompile Include="outAll.cpp" />
+    <ClCompile Include="random_filling.cpp" />
+    <ClCompile Include="clean.cpp" />
+    <ClCompile Include="strOut.cpp" />
+    <ClCompile Include="toBegin.cpp" />
+    <ClCompile Include="toTheEnd.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lab4head.h" />
+    <Text Include="file.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lab7.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
