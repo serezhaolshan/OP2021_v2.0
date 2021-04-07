@@ -25,6 +25,12 @@ void clean();
 
 #define N 30
 #define str_sz 15
+
+extern char sc[str_sz];
+extern float percent[str_sz];
+extern float apprWeight[str_sz];
+extern unsigned long long numberOfStars[str_sz];
+
  
 struct Space {
 	char sc[15];
