@@ -1,4 +1,4 @@
-#include "lab4head.h"	
+#include "lab4.h"	
 
 using namespace std;
 
