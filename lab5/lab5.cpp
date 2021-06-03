@@ -1,5 +1,6 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 
+#include <iostream>
 #include <stdio.h>
 #include <conio.h>
 #include <time.h>
@@ -53,6 +54,7 @@ int main()
 {
     int i, j, n;
     int** m;
+    std::cout << "Enter size of matrix:" << std::endl;
     scanf("%d", &n);
     m = (int**)malloc(n * sizeof(int*)); for (i = 0; i < n; i++) m[i] = (int*)malloc(n * sizeof(int));
     f1(m, n);

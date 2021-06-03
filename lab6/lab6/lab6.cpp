@@ -3,6 +3,7 @@
 #include<clocale>
 using namespace std;
 
+
 void Compare(char* str1, int n, char* str2, int m)
 {
     for (int i = 0; i < n; i++)
@@ -21,48 +22,47 @@ void Compare(char* str1, int n, char* str2, int m)
 
 
 int main() {
-    setlocale(LC_ALL, "rus");
+    
     int m, n, i, j;
     while (true)
     {
-        cout << "Введите длину первой строки:";
+        cout << "Enter first string's length";
         cin >> m;
-        cout << "Введите длину второй строки:";
+        cout << "Enter second string's length";
         cin >> n;
         if ((m <= 0) || (n <= 0))
-            cout << "Ошибка. Повторите ввод." << endl;
+            cout << "Error. Incorrect input, please try again..." << endl;
         else break;
     }
     char* str1 = new char[m];
     char* str2 = new char[n];
-    cout << "Введите первую строку: ";
+    cout << "Enter first string ";
     for (i = 0; i < m; i++)
     {
-        cin >> *(str1-i);
+        cin >> *(str1+i);
     }
-    cout << "Введите вторую строку: ";
+    cout << "Enter second string ";
     for (j = 0; j < n; j++)
     {
-        cin >> *(str2-j);
+        cin >> *(str2+j);
     }
-    cout << "Первая строка: ";
+    cout << "First string is: ";
     for (i = 0; i < m; i++)
     {
-        cout << *(str1-i);
+        cout << *(str1+i);
     }
     cout << endl;
 
-    cout << "Вторая строка: ";
+    cout << "Second string is: ";
     for (j = 0; j < n; j++)
     {
-        cout << *(str2-j);
+        cout << *(str2+j);
     }
     cout << endl;
-    cout << "Символ: " << endl;
+    cout << "Symbol: ";
     Compare(str1, m, str2, n);
+    cout << endl;
 
-    delete[] str1;
-    delete[] str2;
     system("Pause");
     return 0;
 }
